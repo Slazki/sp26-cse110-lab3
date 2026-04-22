@@ -2,37 +2,43 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <style>
-    h1 {
-    text-align: center;
-    }
-    </style>
-    <link rel="stylesheet" href="style.css">
-    <meta name="description" content="Meeting minutes for Lab 2 HTML assignment">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Meeting minutes for Lab 3 CSS assignment">
     <title>Team Meeting Minutes</title>
     <link rel="icon" href="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4dd.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+      h1 {
+        text-align: center;
+      }
+    </style>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <header>
-      <h1>Team Meeting Minutes</h1>
+    <header class="site-header">
+      <div class="header-badge">Weekly Team Sync</div>
+      <h1 id="main-title">Team Meeting Minutes</h1>
       <h2>Project Brainstorm and Weekly Check In</h2>
       <h3>April 14, 2026</h3>
 
-      <nav>
-        <a href="#attendance">Attendance</a><br>
-        <a href="#agenda">Agenda</a><br>
-        <a href="#unfinished">Unfinished Business</a><br>
-        <a href="#new">New Business</a><br>
-        <a href="#comments">Comments</a><br>
-        <a href="#media">Media</a><br>
+      <nav class="nav-links">
+        <a href="#attendance">Attendance</a>
+        <a href="#agenda">Agenda</a>
+        <a href="#unfinished">Unfinished Business</a>
+        <a href="#new">New Business</a>
+        <a href="#comments">Comments</a>
+        <a href="#media">Media</a>
+        <a href="#summary">Summary</a>
         <a href="#form">Feedback Form</a>
       </nav>
 
       <hr>
     </header>
 
-    <main>
-      <section id="attendance">
+    <main class="page-layout">
+      <section id="attendance" class="content-card minutes-section">
         <h2>Attendance</h2>
         <p>
           The meeting started at <strong>6:00 PM</strong>. Everyone gave a quick update
@@ -44,12 +50,12 @@
           <li>Solaiman</li>
           <li>Josh</li>
         </ul>
-        <div>
+        <div class="meeting-type">
           <span>Meeting type:</span> In person
         </div>
       </section>
 
-      <section id="agenda">
+      <section id="agenda" class="content-card">
         <h2>Agenda</h2>
         <ol>
           <li>Review progress from last meeting</li>
@@ -59,7 +65,7 @@
         </ol>
       </section>
 
-      <section id="unfinished">
+      <section id="unfinished" class="content-card">
         <h2>Unfinished Business</h2>
         <p>
           Last meeting, the team agreed to research app ideas and compare a few possible
@@ -71,21 +77,20 @@
         </p>
       </section>
 
-      <section id="new">
+      <section id="new" class="content-card">
         <h2>New Business</h2>
         <p>
           The team decided to move forward with a <em>student productivity app</em>.
           This app will help students organize homework, deadlines, and meeting schedules.
         </p>
-        <p>
-          <strong>Task assignments:</strong>
-        </p>
-        <ul>
-          <li>Fahad will work on the basic HTML structure</li>
-          <li>Ali will collect notes and examples</li>
-          <li>Sarah will create diagrams and media</li>
-          <li>David will review the final page for missing elements</li>
-        </ul>
+        <p><strong>Task assignments:</strong></p>
+
+        <div class="task-grid">
+          <div class="task-box">Fahad will work on the basic HTML structure</div>
+          <div class="task-box">Ali will collect notes and examples</div>
+          <div class="task-box">Sarah will create diagrams and media</div>
+          <div class="task-box">David will review the final page for missing elements</div>
+        </div>
 
         <details>
           <summary>Extra Notes About the Chosen Project</summary>
@@ -96,7 +101,7 @@
         </details>
       </section>
 
-      <section id="comments">
+      <section id="comments" class="content-card">
         <h2>Comments, Questions, and Concerns</h2>
         <ul>
           <li>The group wants to keep the design simple for now</li>
@@ -109,36 +114,43 @@
         </p>
       </section>
 
-      <section id="media">
+      <section id="media" class="content-card media-section">
         <h2>Pictures and Recordings</h2>
 
-        <h3>Whiteboard Diagram</h3>
-        <img
-          src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80"
-          alt="Team discussion around a workspace"
-          width="400"
-        >
+        <div class="media-flex">
+          <div class="media-card">
+            <h3>Whiteboard Diagram</h3>
+            <img
+              src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80"
+              alt="Team discussion around a workspace"
+            >
+          </div>
 
-        <h3>Audio Recording</h3>
-        <audio controls>
-        <source src="sonican-uplifting-feelgood-30-seconds-corporate-430728.mp3" type="audio/mpeg">
-        </audio>
+          <div class="media-card">
+            <h3>Audio Recording</h3>
+            <audio controls>
+              <source src="sonican-uplifting-feelgood-30-seconds-corporate-430728.mp3" type="audio/mpeg">
+            </audio>
+          </div>
 
-        <h3>Video Recording</h3>
-       <video controls width="400">
-      <source src="854715-hd_1920_1080_30fps.mp4" type="video/mp4">
-      </video>
+          <div class="media-card">
+            <h3>Video Recording</h3>
+            <video controls>
+              <source src="854715-hd_1920_1080_30fps.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
       </section>
 
-      <section>
+      <section id="summary" class="content-card">
         <h2>Meeting Summary</h2>
-        <p>
+        <p style="color: blue;">
           In summary, the team picked the project idea, divided up responsibilities,
           and agreed on the work that needs to be done before the next meeting.
         </p>
       </section>
 
-      <section id="form">
+      <section id="form" class="content-card">
         <h2>Feedback Form</h2>
 
         <form>
@@ -199,17 +211,22 @@
               <textarea id="comments-box" name="comments-box" rows="5" cols="40"></textarea>
             </p>
 
-            <p>
+            <p class="button-row">
               <button type="submit">Submit Feedback</button>
             </p>
           </fieldset>
         </form>
       </section>
+
+      <section class="content-card hidden-note">
+        <h2>Hidden Note</h2>
+        <p>This section is hidden to demonstrate display: none.</p>
+      </section>
     </main>
 
-    <footer>
+    <footer class="site-footer">
       <hr>
-      <p>Created for CSE 110 Lab 2</p>
+      <p>Created for CSE 110 Lab 3</p>
       <p>Prepared by Fahad Majidi and team</p>
     </footer>
   </body>
