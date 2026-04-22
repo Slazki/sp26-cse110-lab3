@@ -1,35 +1,40 @@
 /* Lab 3 stylesheet */
+/* Includes at least one example of each required checklist item */
 
-/* CSS variables */
+/* CSS variables with fallback */
 :root {
   --main-color: #4f46e5;
   --card-bg: #ffffff;
+  --soft-blue: #dbeafe;
+  --accent-color: orange;
 }
 
-/* universal selector */
+/* Universal selector */
 * {
   box-sizing: border-box;
 }
 
-/* body styling */
+/* Element selector */
 body {
   background-color: rgb(245, 245, 245);
   font-family: "Inter", Arial, sans-serif;
+  color: #222222;
   margin: 0;
   padding: 0;
-  color: #222222;
+  position: static;
 }
 
-/* selector list */
+/* Selector list */
 h1,
 h2 {
   margin-top: 0;
 }
 
-/* element selectors */
+/* Element selectors + required color types */
 h1 {
   color: rgb(20, 80, 160);
   font-size: 2rem;
+  text-align: center;
 }
 
 h2 {
@@ -43,21 +48,27 @@ h3 {
 }
 
 p {
-  color: orange;
+  color: rgba(40, 40, 40, 0.9);
   line-height: 1.6;
 }
 
-/* id selector */
+/* ID selector */
 #main-title {
   text-decoration: underline;
 }
 
-/* header styling + position */
+/* Class selector + position sticky */
 .site-header {
   background-color: #dbeafe;
   position: sticky;
   top: 0;
   z-index: 10;
+
+  /* margin longhand */
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 1rem;
+  margin-left: 0;
 
   /* padding longhand */
   padding-top: 1rem;
@@ -65,31 +76,39 @@ p {
   padding-bottom: 1rem;
   padding-left: 2rem;
 
-  border-bottom: 3px solid #93c5fd;
+  /* border longhand */
+  border-style: solid;
+  border-color: #93c5fd;
+  border-width: 0 0 3px 0;
+  border-radius: 0;
 }
 
-/* absolute positioning */
+/* Position absolute */
 .header-badge {
   position: absolute;
   top: 1rem;
   right: 1.5rem;
-
   background-color: #4f46e5;
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 12px;
+  display: inline-block;
 }
 
-/* flexbox */
+/* Flexbox: 3+ related properties */
 .nav-links {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 1rem;
   flex-wrap: wrap;
+
+  /* margin auto requirement */
+  margin: auto;
+  width: 90%;
 }
 
-/* links */
+/* Element selector + color-mix + inline-block */
 a {
   color: blue;
   color: color-mix(in srgb, blue 70%, white 30%);
@@ -99,7 +118,7 @@ a {
   border-radius: 8px;
 }
 
-/* pseudo classes */
+/* Pseudo-classes */
 a:hover {
   background-color: #bfdbfe;
 }
@@ -108,119 +127,126 @@ a:active {
   transform: scale(0.98);
 }
 
-/* layout grid */
+/* Grid layout: 3+ related properties */
 .page-layout {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
+  justify-items: stretch;
 
   width: 90%;
   max-width: 70rem;
   min-width: 18rem;
-
   margin: auto;
   padding: 1rem;
 }
 
-/* content cards */
-.content-card {
-  background-color: var(--card-bg, white);
-
-  /* margin shorthand */
-  margin: 0.5rem;
-
-  /* padding shorthand */
-  padding: 1rem;
-
-  /* border longhand */
-  border-style: solid;
-  border-color: #cbd5e1;
-  border-width: 2px;
-
-  border-radius: 14px;
-}
-
-/* media cards */
-.media-card {
-  margin: 10px;
-  padding: 1em;
-
-  /* border shorthand */
-  border: 2px solid #94a3b8;
-  border-radius: 10px;
-
-  /* FIXED (removed invalid color(display-p3)) */
-  background-color: #f0f4ff;
-}
-
-/* descendant combinator */
-section p {
-  color: #555;
-}
-
-/* child combinator */
-ul > li {
-  margin-bottom: 0.4rem;
-}
-
-/* adjacent sibling */
-h2 + p {
-  font-style: italic;
-}
-
-/* general sibling */
-h2 ~ p {
-  max-width: 60ch;
-}
-
-/* combining selectors */
+/* Combining two selectors */
 section.content-card {
   background-color: #ffffff;
 }
 
-/* attribute selector */
+/* Content card with shorthand box model */
+.content-card {
+  background-color: var(--card-bg, white);
+
+  /* margin shorthand */
+  margin: 0.5rem 0.75rem 0.5rem 0.75rem;
+
+  /* padding shorthand */
+  padding: 1rem 1.25rem 1rem 1.25rem;
+
+  /* border shorthand */
+  border: 2px solid #cbd5e1;
+  border-radius: 14px;
+}
+
+/* Wider-gamut color using color(colorspace...) */
+.media-card {
+  margin: 10px;
+  padding: 1em;
+  border: 2px solid #94a3b8;
+  border-radius: 10px;
+  background-color: #f0f4ff;
+  background-color: color(display-p3 0.94 0.96 1);
+}
+
+/* Descendant combinator */
+section p {
+  color: #555555;
+}
+
+/* Child combinator */
+ul > li,
+ol > li {
+  margin-bottom: 0.4rem;
+}
+
+/* Adjacent sibling combinator */
+h2 + p {
+  font-style: italic;
+}
+
+/* General sibling combinator */
+h2 ~ p {
+  max-width: 60ch;
+}
+
+/* Attribute selector */
 input[type="text"],
 input[type="date"],
 select,
 textarea {
   width: 100%;
   max-width: 32rem;
-
+  min-width: 12rem;
   padding: 0.7rem;
-
   border: 2px solid #cbd5e1;
   border-radius: 8px;
+  display: block;
 }
 
-/* fieldset */
+/* Fieldset */
 fieldset {
-  border: 2px solid #cbd5e1;
+  border-style: solid;
+  border-color: #cbd5e1;
+  border-width: 2px;
   border-radius: 12px;
   padding: 1rem;
+  background-color: hsla(210, 40%, 98%, 1);
 }
 
-/* legend */
+/* Text styling */
 legend {
   color: #4f46e5;
   text-decoration: underline;
+  text-align: left;
+  font-weight: 700;
 }
 
-/* display property */
+/* Display values */
 .button-row {
   display: block;
 }
 
-/* button */
+.inline-note {
+  display: inline;
+}
+
+.hidden-note {
+  display: none;
+}
+
+/* Button styles */
 button {
   background-color: var(--main-color, blue);
   color: white;
-
   padding: 12px 20px;
   border: none;
   border-radius: 10px;
+  display: inline-block;
 }
 
-/* pseudo */
 button:hover {
   background-color: #3730a3;
 }
@@ -229,68 +255,75 @@ button:active {
   transform: scale(0.97);
 }
 
-/* flexbox (multiple children) */
+/* Flexbox with > 2 children */
 .media-flex {
   display: flex;
+  justify-content: space-between;
+  align-items: stretch;
   gap: 1rem;
   flex-wrap: wrap;
 }
 
-/* grid */
+/* Grid with > 2 children */
 .task-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
+  justify-items: stretch;
 }
 
-/* grid items */
 .task-box {
   background-color: #eef2ff;
   border: 2px solid #c7d2fe;
+  border-radius: 10px;
   padding: 1rem;
 }
 
-/* sizing */
+/* Sizing requirements */
 img,
 video,
 audio {
   width: 100%;
   max-width: 25rem;
   min-width: 12rem;
+  height: auto;
 }
 
-/* display none */
-.hidden-note {
-  display: none;
-}
-
-/* footer */
+/* Footer */
 .site-footer {
   color: #4f46e5;
   color: var(--main-color, blue);
-
   background-color: #e0e7ff;
-
-  padding: 1rem;
+  padding: 1rem 2rem;
   text-align: center;
 }
 
-/* :has selector */
+/* :has() selector */
 .media-section:has(img) {
   border: 3px solid #60a5fa;
 }
 
-/* FIXED nesting → standard selector */
-.minutes-section p {
-  margin-bottom: 0.75rem;
+/* Nested selector requirement */
+.minutes-section {
+  & p {
+    margin-bottom: 0.75rem;
+  }
 }
 
-/* absolute unit examples */
+/* Absolute unit examples */
 hr {
   border-width: 2pt;
 }
 
-/* media query */
+.site-footer p {
+  margin-bottom: 4mm;
+}
+
+.header-badge {
+  min-width: 1in;
+}
+
+/* Responsiveness */
 @media (max-width: 768px) {
   body {
     font-size: 14px;
@@ -298,6 +331,7 @@ hr {
 
   .nav-links {
     flex-direction: column;
+    align-items: stretch;
   }
 
   .task-grid {
@@ -306,5 +340,14 @@ hr {
 
   .media-flex {
     flex-direction: column;
+  }
+
+  .header-badge {
+    position: static;
+    margin-top: 0.5rem;
+  }
+
+  .page-layout {
+    width: 95%;
   }
 }
