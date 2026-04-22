@@ -1,7 +1,4 @@
 /* Lab 3 stylesheet */
-/* Includes at least one example of each required checklist item */
-
-/* CSS variables with fallback */
 :root {
   --main-color: #4f46e5;
   --card-bg: #ffffff;
