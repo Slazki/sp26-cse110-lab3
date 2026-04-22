@@ -36,3 +36,13 @@ a {
 footer {
   color: var(--main-color, blue);
 }
+
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  nav {
+    display: block;
+  }
+}
