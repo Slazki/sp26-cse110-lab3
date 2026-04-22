@@ -24,3 +24,15 @@ h2 {
 p {
   color: orange;
 }
+
+header {
+  background-color: #dbeafe;
+}
+
+a {
+  color: color-mix(in srgb, blue 70%, white 30%);
+}
+
+footer {
+  color: var(--main-color, blue);
+}
