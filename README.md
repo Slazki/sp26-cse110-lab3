@@ -1,3 +1,3 @@
-# Lab 2 - Starter
+# Lab 3
 
-https://slazki.github.io/Lab2_Starter/#agenda
+https://slazki.github.io/sp26-cse110-lab3/
