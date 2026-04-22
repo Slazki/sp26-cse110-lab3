@@ -165,7 +165,7 @@ section.content-card {
   border: 2px solid #94a3b8;
   border-radius: 10px;
   background-color: #f0f4ff;
-  background-color: color(display-p3 0.94 0.96 1);
+  background-color: #f0f4ff;
 }
 
 /* Descendant combinator */
@@ -301,10 +301,8 @@ audio {
 }
 
 /* Nested selector requirement */
-.minutes-section {
-  & p {
-    margin-bottom: 0.75rem;
-  }
+.minutes-section p {
+  margin-bottom: 0.75rem;
 }
 
 /* Absolute unit examples */
